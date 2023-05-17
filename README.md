@@ -2,7 +2,7 @@
 This case study is one of the case study of google data analytics course on coursera platform
 
 # Summary 
-Following steps are followed of data analytics process for this case study:
+Following steps are followed of data analytics process for this case study
 1 Ask
 2 prepare
 3 process
@@ -45,27 +45,49 @@ data4<- read.csv("C:/Users/Sumit/Desktop/divvy_bike_share/Chicago/202104-divvy-t
 data5<- read.csv("C:/Users/Sumit/Desktop/divvy_bike_share/Chicago/202105-divvy-tripdata.csv")
 data6<- read.csv("C:/Users/Sumit/Desktop/divvy_bike_share/Chicago/202106-divvy-tripdata.csv")
 
-To merge all the files together we need to know that all files has same attributes in same sequence.To get  this information colnames() fxn has been used.
-colnames(data1)
-colnames(data2)
-colnames(data3)
-colnames(data4)
-colnames(data5)
-colnames(data6)
-All files  has same  attributes in same sequence 
+To merge all the files together we need to know that all files has same attributes,same data type in same sequence.
+str(data1)
+str(data2)
+str(data3)
+str(data4)
+str(data5)
+str(data6)
+All files  has same  attributes,same data type in same sequence 
 
 Now i have merged these all files together
 divvy<-bind_rows(data1,data2,data3,data4,data5,data6)
 
-To check that all files together
+To check that new files
 colnames(divvy)
 
+Now data clean process has been started
+There is no  need such type of column (start_lat,start_lng,end_lat,end_lng,start_station_id & end_station_id) in data so i have removed this from the data
+divvy<-select(divvy,-start_lat,-start_lng,-end_lat,-end_lng,-start_station_id,-end_station_id)
 
+For understanding data clearly i have renamed one column of rideable_type 
+divvy<-rename(divvy,"bike_type"="rideable_type")
 
+In our data  there was only one column of bike_type for data aggregation so few of the column has been added.
+divvy$month<-format(as_date(divvy$started_at),"%b")
+ 
+ divvy$day<-format(as_date(divvy$started_at),"%d")
+ 
+ divvy$weekday<-format(as_date(divvy$started_at),"%a")
 
+We have no any numeric data type for which we can summarize our data, so ride length duration  has been extracted from the column of start_at & ended_at 
 
+divvy$ride_length<- difftime(divvy$ended_at,divvy$started_at)
+  
+ divvy$ride_length<-as.numeric(as.character(divvy$ride_length))
 
+ To see null values and empty values
+ skim_without_charts(divvy)
+ 
+ There is no null value has been found but there is a empty values in column of start_station_name and end_station_name ,to remove this
+ 
+divvy<- divvy %>%  filter(start_station_name!='') %>% filter(end_station_name!='')
 
+  
 
 
 
