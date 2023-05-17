@@ -31,7 +31,53 @@ reporting data that helps guide Cyclistic marketing strategy.
 * Why would casual riders buy Cyclistic annual memberships?
 * How can Cyclistic use digital media to influence casual riders to become members?
 
-# prepare 
+# Process
+Rstudio  has been used for process phase
+These  libraries has been used:
+1.library(tidyverse)
+2.library(sqldf)
+
+For importing data from the file
+data1<- read.csv("c:/users/Sumit/Desktop/divvy_bike_share/Chicago/202101-divvy-tripdata.csv")
+data2<- read.csv("C:/Users/Sumit/Desktop/divvy_bike_share/Chicago/202102-divvy-tripdata.csv")
+data3<- read.csv("C:/Users/Sumit/Desktop/divvy_bike_share/Chicago/202103-divvy-tripdata.csv")
+data4<- read.csv("C:/Users/Sumit/Desktop/divvy_bike_share/Chicago/202104-divvy-tripdata.csv")
+data5<- read.csv("C:/Users/Sumit/Desktop/divvy_bike_share/Chicago/202105-divvy-tripdata.csv")
+data6<- read.csv("C:/Users/Sumit/Desktop/divvy_bike_share/Chicago/202106-divvy-tripdata.csv")
+
+To merge all the files together we need to know that all files has same attributes in same sequence.To get  this information colnames() fxn has been used.
+colnames(data1)
+colnames(data2)
+colnames(data3)
+colnames(data4)
+colnames(data5)
+colnames(data6)
+All files  has same  attributes in same sequence 
+
+Now i have merged these all files together
+divvy<-bind_rows(data1,data2,data3,data4,data5,data6)
+
+To check that all files together
+colnames(divvy)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
