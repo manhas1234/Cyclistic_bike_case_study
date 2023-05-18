@@ -39,15 +39,9 @@ reporting data that helps guide Cyclistic marketing strategy.
 
 # prepare
 I will be using Cyclistic’s historical bike trip data of 2021.In this data i will be perform  6 month  data from jan to june which are  publicly available [here](https://divvy-tripdata.s3.amazonaws.com/index.html) This data is made available by motivate international inc under this [license](https://ride.divvybikes.com/data-license-agreement)
-There are 6 csv files data has been downloaded from the available website and imported into R
-data1<- read.csv("c:/users/Sumit/Desktop/divvy_bike_share/Chicago/202101-divvy-tripdata.csv")
-data2<- read.csv("C:/Users/Sumit/Desktop/divvy_bike_share/Chicago/202102-divvy-tripdata.csv")
-data3<- read.csv("C:/Users/Sumit/Desktop/divvy_bike_share/Chicago/202103-divvy-tripdata.csv")
-data4<- read.csv("C:/Users/Sumit/Desktop/divvy_bike_share/Chicago/202104-divvy-tripdata.csv")
-data5<- read.csv("C:/Users/Sumit/Desktop/divvy_bike_share/Chicago/202105-divvy-tripdata.csv")
-data6<- read.csv("C:/Users/Sumit/Desktop/divvy_bike_share/Chicago/202106-divvy-tripdata.csv")
 
  In term of  bias and credibility, ROCC process has been used
+ 
  
  Reliability: Divvy has the rights over the license of this data. Divvy is a program that’s part of the Chicago Department of Transportation (CDOT). The organization owns vehicles, stations, and a wide range of bikes around the city.
 
@@ -59,11 +53,18 @@ Current: The data is up to date to apr 2023.
 
 Cited: The data is available under the current license agreement.
 
-# Process
-Rstudio  has been used for process phase
-These  libraries has been used:
+Rstudio  has been used for this phase
+
+These  libraries has been used
+
 1.library(tidyverse)
+
+2 library(Lubridate)
+
+3 library(skimr)
+
 2.library(sqldf)
+
 
 For importing data from the file
 
@@ -79,13 +80,19 @@ data5<- read.csv("C:/Users/Sumit/Desktop/divvy_bike_share/Chicago/202105-divvy-t
 
 data6<- read.csv("C:/Users/Sumit/Desktop/divvy_bike_share/Chicago/202106-divvy-tripdata.csv")
 
+
+
+# Process
+
 To merge all the files together we need to know that all files has same attributes,same data type in same sequence.
+
 str(data1)
 str(data2)
 str(data3)
 str(data4)
 str(data5)
 str(data6)
+
 All files  has same  attributes,same data type in same sequence 
 
 Now i have merged these all files together
@@ -134,11 +141,30 @@ There is some negative values in ride_length column it means ended time is less 
   Now our data has been cleaned and well processed for analysis.
   
   # Analysis
+  
+sqldf("select bike_type,  avg(ride_length) as average_length ,member_casual from divvy2 
+               group by bike_type,member_casual ")
+               
+               
+  sqldf("select bike_type,  sum(ride_length) as total_length ,member_casual from divvy2 
+               group by bike_type,member_casual ")
+ 
+ 
+sqldf(" select month ,avg(ride_length) as average_length,member_casual
+      from divvy2  group by month,member_casual ")
+
+
+
+sqldf(" select weekday ,avg(ride_length) as average_length,member_casual
+      from divvy2  group by weekday ,member_casual  ")
+
+
 .
   
   
   # Share phase
-  Visulaization of data has been prepared in Tableau
+  Visulaization of data has been prepared in Tableau public
+  
   link are [here](https://public.tableau.com/app/profile/sumit.manhas7726/viz/Divvy_bike_share2021/Dashboard1)
   
   
