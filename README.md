@@ -16,6 +16,10 @@ Following steps are followed of data analytics process for this case study:
 In 2016, Cyclistic launched a successful bike-share offering. Since then, the program has grown to a fleet of 5,824 bicycles that are geotracked
  and locked into a network of 692 stations across Chicago. The bikes can be unlocked from one station and returned to any other station in the system anytime.Until now, Cyclistic’s marketing strategy relied on building general awareness and appealing to broad consumer segments One approach that helped make these things possible was the flexibility of its pricing plans: single-ride passes, full-day passes, and annual memberships. Customers who purchase single-ride or full-day passes are referred to as casual riders. Customers who purchase annual memberships are Cyclistic members.
  
+ The marketing analytics team wants to understand how casual riders and annual members use Cyclistic bikes differently. From these insights, the team will design a new marketing strategy to convert casual riders into annual members. The primary stakeholders for this project include Cyclistic’s director of marketing . The Cyclistic marketing analytics team are secondary stakeholders.
+
+
+ 
 
 # Ask 
  1. Business statement: 
@@ -32,6 +36,28 @@ reporting data that helps guide Cyclistic marketing strategy.
 * How do annual members and casual riders use Cyclistic bikes differently?
 * Why would casual riders buy Cyclistic annual memberships?
 * How can Cyclistic use digital media to influence casual riders to become members?
+
+# prepare
+I will be using Cyclistic’s historical bike trip data of 2021.In this data i will be perform  6 month  data from jan to june which are  publicly available [here](https://divvy-tripdata.s3.amazonaws.com/index.html) This data is made available by motivate international inc under this [license](https://ride.divvybikes.com/data-license-agreement)
+There are 6 csv files data has been downloaded from the available website and imported into R
+data1<- read.csv("c:/users/Sumit/Desktop/divvy_bike_share/Chicago/202101-divvy-tripdata.csv")
+data2<- read.csv("C:/Users/Sumit/Desktop/divvy_bike_share/Chicago/202102-divvy-tripdata.csv")
+data3<- read.csv("C:/Users/Sumit/Desktop/divvy_bike_share/Chicago/202103-divvy-tripdata.csv")
+data4<- read.csv("C:/Users/Sumit/Desktop/divvy_bike_share/Chicago/202104-divvy-tripdata.csv")
+data5<- read.csv("C:/Users/Sumit/Desktop/divvy_bike_share/Chicago/202105-divvy-tripdata.csv")
+data6<- read.csv("C:/Users/Sumit/Desktop/divvy_bike_share/Chicago/202106-divvy-tripdata.csv")
+
+ In term of  bias and credibility, ROCC process has been used
+ 
+ Reliability: Divvy has the rights over the license of this data. Divvy is a program that’s part of the Chicago Department of Transportation (CDOT). The organization owns vehicles, stations, and a wide range of bikes around the city.
+
+Original: The data collected is from Motivate International Inc. They manage the City of Chicago’s Divvy bicycle-sharing program.
+
+Comprehensive: The data includes key information such as ride ID, type of bike, time the user started and ended the ride, start and end time, station ID, longitude and latitude, and finally the type of membership.
+
+Current: The data is up to date to apr 2023.
+
+Cited: The data is available under the current license agreement.
 
 # Process
 Rstudio  has been used for process phase
@@ -108,10 +134,11 @@ There is some negative values in ride_length column it means ended time is less 
   Now our data has been cleaned and well processed for analysis.
   
   # Analysis
-  Data frame has been converted to csv files for analysis and analysis has been done in tableau public .
+.
   
   
-  # Share phase 
+  # Share phase
+  Visulaization of data has been prepared in Tableau
   link are [here](https://public.tableau.com/app/profile/sumit.manhas7726/viz/Divvy_bike_share2021/Dashboard1)
   
   
