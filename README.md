@@ -112,7 +112,7 @@ There is some negative values in ride_length column it means ended time is less 
   
   
   # Share phase 
-  link are [here]https://public.tableau.com/app/profile/sumit.manhas7726/viz/Divvy_bike_share2021/Dashboard1
+  link are [here](https://public.tableau.com/app/profile/sumit.manhas7726/viz/Divvy_bike_share2021/Dashboard1)
   
   
   ![Dashboard 1](https://github.com/manhas1234/Cyclistic_bike_case_study/assets/130725137/c14b4589-5ef9-4cc5-862b-0e28220c9d44)
