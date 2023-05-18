@@ -95,6 +95,31 @@ divvy$ride_length<- difftime(divvy$ended_at,divvy$started_at)
  
 divvy<- divvy %>%  filter(start_station_name!='') %>% filter(end_station_name!='')
 
+summary(divvy)
+
+There is some negative values in ride_length column it means ended time is less  than started time so to remove this 
+
+ divvy<- divvy %>% filter(ride_length>0)
+ 
+ Ride_length column time have in second so it has been converted from second to minutes,and also new data frame has been added to avoid from the data loss 
+   
+  divvy2<- divvy %>% mutate("ride_length"=ride_length/60)
+  
+  Now our data has been cleaned and well processed for analysis.
+  
+  # Analysis
+  Data frame has been converted to csv files for analysis and analysis has been done in tableau public .
+  
+  
+  # Share phase 
+  link are here[https://public.tableau.com/app/profile/sumit.manhas7726/viz/Divvy_bike_share2021/Dashboard1]
+  
+  
+  ![Dashboard 1](https://github.com/manhas1234/Cyclistic_bike_case_study/assets/130725137/c14b4589-5ef9-4cc5-862b-0e28220c9d44)
+
+
+
+
   
 
 
