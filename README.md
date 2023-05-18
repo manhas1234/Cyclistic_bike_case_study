@@ -143,19 +143,24 @@ There is some negative values in ride_length column it means ended time is less 
   # Analysis
   
 sqldf("select bike_type,  avg(ride_length) as average_length ,member_casual from divvy2 
+
                group by bike_type,member_casual ")
                
                
+               
   sqldf("select bike_type,  sum(ride_length) as total_length ,member_casual from divvy2 
+  
                group by bike_type,member_casual ")
  
  
 sqldf(" select month ,avg(ride_length) as average_length,member_casual
+
       from divvy2  group by month,member_casual ")
 
 
 
 sqldf(" select weekday ,avg(ride_length) as average_length,member_casual
+
       from divvy2  group by weekday ,member_casual  ")
 
 
