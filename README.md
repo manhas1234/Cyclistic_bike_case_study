@@ -147,15 +147,7 @@ sqldf("select bike_type,  avg(ride_length)as average_length ,member_casual from 
 group by bike_type,member_casual ")
 
                
-     bike_type  average_length  member_casual
-1  classic_bike      28.465241        casual
-2  classic_bike      14.273375        member
-3   docked_bike      90.709745        casual
-4   docked_bike       2.633333        member
-5 electric_bike      21.813951        casual
-6 electric_bike      12.972666        member
 
-               
                
   sqldf("select bike_type,  sum(ride_length)as total_length ,member_casual from divvy2 
   
