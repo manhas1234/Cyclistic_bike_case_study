@@ -1,0 +1,154 @@
+---
+title: "Divvy_bike_share"
+author: "sumit"
+date: "2023-05-19"
+output: html_document
+---
+# load library
+library(tidyverse)
+```{r}
+library(tidyverse)
+library(lubridate)
+library(skimr)
+library(sqldf)
+```
+
+# import data 
+```{r}
+data1<- read.csv("c:/users/Sumit/Desktop/divvy_bike_share/Chicago/202101-divvy-tripdata.csv")
+data2<- read.csv("C:/Users/Sumit/Desktop/divvy_bike_share/Chicago/202102-divvy-tripdata.csv")
+data3<- read.csv("C:/Users/Sumit/Desktop/divvy_bike_share/Chicago/202103-divvy-tripdata.csv")
+data4<- read.csv("C:/Users/Sumit/Desktop/divvy_bike_share/Chicago/202104-divvy-tripdata.csv")
+data5<- read.csv("C:/Users/Sumit/Desktop/divvy_bike_share/Chicago/202105-divvy-tripdata.csv")
+data6<- read.csv("C:/Users/Sumit/Desktop/divvy_bike_share/Chicago/202106-divvy-tripdata.csv")
+
+```
+
+# structure of data
+```{r}
+str(data1)
+str(data2)
+str(data3)
+str(data4)
+str(data5)
+str(data6)
+
+```
+# To merge all data files to gether
+```{r}
+divvy<-bind_rows(data1,data2,data3,data4,data5,data6)
+```
+
+
+# structure of data
+```{r}
+str(divvy)
+```
+```{r}
+head(divvy)
+```
+
+```{r}
+tail(divvy)
+```
+```{r}
+colnames(divvy)
+```
+
+```{r}
+divvy<-select(divvy,-start_lat,-start_lng,-end_lat,-end_lng,-start_station_id,-end_station_id)
+```
+
+```{r}
+colnames(divvy)
+```
+
+```{r}
+divvy<-rename(divvy,"bike_type"="rideable_type")
+
+```
+
+
+```{r}
+ divvy$month<-format(as_date(divvy$started_at),"%b")
+ 
+ 
+ divvy$day<-format(as_date(divvy$started_at),"%d")
+ 
+
+ divvy$weekday<-format(as_date(divvy$started_at),"%a")
+
+```
+
+
+```{r}
+str(divvy)
+```
+```{r}
+ divvy$ride_length<- difftime(divvy$ended_at,divvy$started_at)
+  
+  divvy$ride_length<-as.numeric(as.character(divvy$ride_length))
+  
+```
+
+
+```{r}
+summary(divvy)
+```
+
+```{r}
+
+  divvy<- divvy %>% filter(ride_length>0)
+  
+  divvy<- divvy %>% mutate("ride_length"=ride_length/60)
+```
+
+```{r}
+skim_without_charts(divvy)
+```
+```{r}
+divvy2<-divvy %>% filter(start_station_name!='') %>% filter(end_station_name!='')
+
+```
+
+
+
+```{r}
+skim_without_charts(divvy2)
+```
+
+```{r}
+ sqldf("select bike_type,  avg(ride_length) as Average_length ,member_casual from divvy2 
+               group by bike_type,member_casual ")
+```
+```{r echo=TRUE}
+sqldf("select bike_type,  sum(ride_length) as Total_length ,member_casual from divvy2 
+               group by bike_type,member_casual ")
+```
+
+
+
+```{r}
+sqldf("select month,  avg(ride_length) as avg_length ,member_casual from divvy2 
+               group by month,member_casual ")
+```
+
+```{r}
+sqldf(" select weekday ,avg(ride_length) as average_length,member_casual
+      from divvy2  group by weekday ,member_casual  ")
+
+```
+
+
+
+
+
+
+
+
+
+
+
+
+
+
