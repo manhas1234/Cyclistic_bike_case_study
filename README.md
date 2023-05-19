@@ -98,10 +98,10 @@ All files  has same  attributes,same data type in same sequence
 Now i have merged these all files together
 divvy<-bind_rows(data1,data2,data3,data4,data5,data6)
 
-To check that new files
 colnames(divvy)
 
 Now data clean process has been started
+
 There is no  need such type of column (start_lat,start_lng,end_lat,end_lng,start_station_id & end_station_id) in data so i have removed this from the data
 divvy<-select(divvy,-start_lat,-start_lng,-end_lat,-end_lng,-start_station_id,-end_station_id)
 
@@ -145,7 +145,16 @@ There is some negative values in ride_length column it means ended time is less 
 sqldf("select bike_type,  avg(ride_length)as average_length ,member_casual from divvy2
 
 group by bike_type,member_casual ")
+
                
+     bike_type  average_length  member_casual
+1  classic_bike      28.465241        casual
+2  classic_bike      14.273375        member
+3   docked_bike      90.709745        casual
+4   docked_bike       2.633333        member
+5 electric_bike      21.813951        casual
+6 electric_bike      12.972666        member
+
                
                
   sqldf("select bike_type,  sum(ride_length)as total_length ,member_casual from divvy2 
