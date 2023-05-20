@@ -206,12 +206,12 @@ Now Our data has been cleaned and well processed for analysis
 
 # 4. Analysis phase
 
-# AVerage of ride duration by bike type of casual and member
+ Average of ride duration by bike type of casual and member
 ```{r}
  sqldf("select bike_type,  avg(ride_length) as Average_length ,member_casual from divvy2 
                group by bike_type,member_casual ")
 ```
-# Total ride length duration by bike type of member and casual
+ Total ride length duration by bike type of member and casual
 
 ```{r}
 sqldf("select bike_type,  sum(ride_length) as Total_length ,member_casual from divvy2 
@@ -220,14 +220,14 @@ sqldf("select bike_type,  sum(ride_length) as Total_length ,member_casual from d
 
 
 
-#  Average ride length duration of  month jan to june of member and casual
+Average ride length duration of  month jan to june of member and casual
 ```{r}
 sqldf("select month,  avg(ride_length) as avg_length ,member_casual from divvy2 
                group by month,member_casual ")
 ```
 
 
-#  Average  ride length duration in weekday of member and casual
+Average  ride length duration in weekday of member and casual
 ```{r}
 sqldf(" select weekday ,avg(ride_length) as average_length,member_casual
       from divvy2  group by weekday ,member_casual  ")
