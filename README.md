@@ -183,7 +183,7 @@ summary(divvy)
   divvy<- divvy %>% mutate("ride_length"=ride_length/60)
 ```
 
-
+# To check null ,duplicates and empty values in the data 
 ```{r}
 skim_without_charts(divvy)
 ```
@@ -196,7 +196,7 @@ divvy2<-divvy %>% filter(start_station_name!='') %>% filter(end_station_name!=''
 
 ```
 
-
+# Again check the data
 
 ```{r}
 skim_without_charts(divvy2)
