@@ -65,7 +65,7 @@ Cited: The data is available under the current license agreement.
 
 
 
-# Rstudio  has been used for this phase  and these  libraries has been used
+Rstudio  has been used for this phase  and these  libraries has been used
 
 ```{r}
 library(tidyverse)
@@ -74,7 +74,7 @@ library(skimr)
 library(sqldf)
 ```
 
-# import data 
+import data 
 ```{r}
 data1<- read.csv("c:/users/Sumit/Desktop/divvy_bike_share/Chicago/202101-divvy-tripdata.csv")
 data2<- read.csv("C:/Users/Sumit/Desktop/divvy_bike_share/Chicago/202102-divvy-tripdata.csv")
@@ -100,43 +100,43 @@ str(data6)
 ```
 
 
-# All files  has same  attributes,same data type in same sequence and Now i have merged these all files together
+All files  has same  attributes,same data type in same sequence and Now i have merged these all files together
 ```{r}
 divvy<-bind_rows(data1,data2,data3,data4,data5,data6)
 ```
 
 
-# To see the structure of data
+ To see the structure of data
 ```{r}
 str(divvy)
 ```
-# Head of the data
+ Head of the data
 ```{r}
 head(divvy)
 ```
-# Tail of data
+Tail of data
 ```{r}
 tail(divvy)
 ```
-# To check column the column of the data 
+To check column the column of the data 
 ```{r}
 colnames(divvy)
 ```
-# Now data clean process has been started
+ Now data clean process has been started
 
 
-# There is no  need such type of column (start_lat,start_lng,end_lat,end_lng,start_station_id & end_station_id) in data so i have removed this from the data
+There is no  need such type of column (start_lat,start_lng,end_lat,end_lng,start_station_id & end_station_id) in data so i have removed this from the data
 
 ```{r}
 divvy<-select(divvy,-start_lat,-start_lng,-end_lat,-end_lng,-start_station_id,-end_station_id)
 ```
 
-# Check the column name again
+ Check the column name again
 
 ```{r}
 colnames(divvy)
 ```
-# For understanding data clearly i have renamed one column of rideable_type
+ For understanding data clearly i have renamed one column of rideable_type
 
 ```{r}
 divvy<-rename(divvy,"bike_type"="rideable_type")
@@ -144,7 +144,7 @@ divvy<-rename(divvy,"bike_type"="rideable_type")
 ```
 
 
-# In our data  there was only one column of bike_type for data aggregation so few of the column has been added.
+In our data  there was only one column of bike_type for data aggregation so few of the column has been added.
 
 ```{r}
  divvy$month<-format(as_date(divvy$started_at),"%b")
@@ -161,7 +161,7 @@ divvy<-rename(divvy,"bike_type"="rideable_type")
 ```{r}
 str(divvy)
 ```
-# We have no any numeric data type for which we can summarize our data, so ride length duration  has been extracted from the column of start_at & ended_at 
+ We have no any numeric data type for which we can summarize our data, so ride length duration  has been extracted from the column of start_at & ended_at 
 
 ```{r}
  divvy$ride_length<- difftime(divvy$ended_at,divvy$started_at)
@@ -174,7 +174,7 @@ str(divvy)
 ```{r}
 summary(divvy)
 ```
-# There is some negative values in ride_length column it means ended time is less  than started time and also  Ride_length column duration time  have in second so it has been converted from second to minutes,and also new data frame has been added to avoid from the data loss 
+There is some negative values in ride_length column it means ended time is less  than started time and also  Ride_length column duration time  have in second so it has been converted from second to minutes,and also new data frame has been added to avoid from the data loss 
 
 ```{r}
 
@@ -183,25 +183,25 @@ summary(divvy)
   divvy<- divvy %>% mutate("ride_length"=ride_length/60)
 ```
 
-# To check null ,duplicates and empty values in the data 
+ To check null ,duplicates and empty values in the data 
 ```{r}
 skim_without_charts(divvy)
 ```
 
 
-# There is a empty values in column of start_station_name and end_station_name ,to remove this
+There is a empty values in column of start_station_name and end_station_name ,to remove this
  
 ```{r}
 divvy2<-divvy %>% filter(start_station_name!='') %>% filter(end_station_name!='')
 
 ```
 
-# Again check the data
+ Again check the data
 
 ```{r}
 skim_without_charts(divvy2)
 ```
-# Now Our data has been cleaned and well processed for analysis
+Now Our data has been cleaned and well processed for analysis
 
 
 # 4. Analysis phase
