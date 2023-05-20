@@ -118,7 +118,7 @@ head(divvy)
 ```{r}
 tail(divvy)
 ```
-
+# To check column the column of the data 
 ```{r}
 colnames(divvy)
 ```
@@ -220,7 +220,7 @@ sqldf("select bike_type,  sum(ride_length) as Total_length ,member_casual from d
 
 
 
-#  Average ride length duration in the month from jan to june of member and casual
+#  Average ride length duration of  month jan to june of member and casual
 ```{r}
 sqldf("select month,  avg(ride_length) as avg_length ,member_casual from divvy2 
                group by month,member_casual ")
