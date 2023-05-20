@@ -1,9 +1,3 @@
----
-title: "Divvy_bike_share"
-author: "sumit"
-date: "2023-05-19"
-output: html_document
----
 
 
 # Cyclistic_bike_share_case_study
