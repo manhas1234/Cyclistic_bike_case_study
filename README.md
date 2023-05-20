@@ -87,7 +87,7 @@ data6<- read.csv("C:/Users/Sumit/Desktop/divvy_bike_share/Chicago/202106-divvy-t
 
 # 3. Process phase
 
-# To merge all the files together we need to know that all files has same attributes,same data type in same sequence.
+ To merge all the files together we need to know that all files has same attributes,same data type in same sequence.
 
 ```{r}
 str(data1)
