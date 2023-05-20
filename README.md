@@ -33,7 +33,7 @@ In 2016, Cyclistic launched a successful bike-share offering. Since then, the pr
  1. Business statement: 
 *  Analyze the Divvy biker's data to identify user habits and trends when using the bike-sharing program with the intention to use that information to guide its new marketing strategy to convert casual riders to  members.
  
-2 Stakeholders:
+2  Stakeholders:
 * Lily Moreno: The director of marketing and your manager. Moreno is responsible for the development of campaigns
 and initiatives to promote the bike-share program. These may include email, social media, and other channels.
 
