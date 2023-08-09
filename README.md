@@ -29,7 +29,7 @@ Cyclistic marketing analytics team: A team of data analysts who are responsible 
 
 # prepare phase
 
-I will be using Cyclistic’s historical bike trip data of 2021.In this data i will be perform 6 month data from jan to june which are publicly available here This data is made available by motivate international inc under this license
+I will be using Cyclistic’s historical bike trip data of 2021.In this data i will be perform 6 month data from jan to june which are publicly available [here](https://divvy-tripdata.s3.amazonaws.com/index.html) data is made available by motivate international inc under this [license](https://ride.divvybikes.com/data-license-agreement)
 
 In term of bias and credibility, ROCC process has been used
 
