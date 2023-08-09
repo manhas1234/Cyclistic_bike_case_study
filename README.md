@@ -90,17 +90,20 @@ str(divvy)
 
 * Head of the data
   
+  
 head(divvy)
 
 
 * Tail of data
+
  
-tail(divvy)
+ tail(divvy)
 
 * To check the column in the data
  
 colnames(divvy)
-![IMG_20230809_173455](https://github.com/manhas1234/Cyclistic_bike_case_study/assets/130725137/4eb110c7-c8d9-49bc-9a50-9776144b0f41)
+![IMG_20230809_173721](https://github.com/manhas1234/Cyclistic_bike_case_study/assets/130725137/2561dd7c-f2b6-4c0f-adc9-d7177e93c1e7)
+
 
 
 
@@ -126,6 +129,77 @@ divvy<-rename(divvy,"bike_type"="rideable_type")
 
  divvy$month<-format(as_date(divvy$started_at),"%b")
  
+ divvy$day<-format(as_date(divvy$started_at),"%d")
+ 
+
+ divvy$weekday<-format(as_date(divvy$started_at),"%a")
+
+ str(divvy)
+ ![IMG_20230809_174040](https://github.com/manhas1234/Cyclistic_bike_case_study/assets/130725137/47612473-4200-4031-8d40-f81417c28b36)
+
+ 
+*We have no any numeric data type for which we can summarize our data, so ride length duration has been extracted from the column of start_at & ended_at
+
+ divvy$ride_length<- difftime(divvy$ended_at,divvy$started_at)
+ 
+ divvy$ride_length<-as.numeric(as.character(divvy$ride_length)) 
+
+ summary(divvy)
+ ![Screenshot_2023-08-09-17-42-28-286_com google android apps docs](https://github.com/manhas1234/Cyclistic_bike_case_study/assets/130725137/6518c47d-d813-4f39-a811-947acd1fb318)
+
+
+ * There is some negative values in ride_length column it means ended time is less than started time and also Ride_length column duration time have in second so it has been converted from second to minutes
+ 
+  divvy<- divvy %>% filter(ride_length>0)
+  
+
+  divvy<- divvy %>%  mutate("ride_length"=ride_length/60)
+
+  
+skim_without_charts(divvy)
+![IMG_20230809_174606](https://github.com/manhas1234/Cyclistic_bike_case_study/assets/130725137/46242551-91e1-43d9-b048-192bc024d131)
+
+
+
+* There is a empty values in column of start_station_name and end_station_name so i have to remove this and also new data frame has been added to avoid from the data loss
+
+divvy2<-divvy %>% filter(start_station_name!='') %>% filter(end_station_name!='')
+
+
+* Now Our data has been cleaned and well processed for analysis
+
+
+# Analysis phase
+
+* AVerage of ride duration by bike type of casual and member
+
+ divvy2 %>% group_by(member_casual,bike_type) %>% summarize(Average_length=mean(ride_length))
+ ![IMG_20230809_174947](https://github.com/manhas1234/Cyclistic_bike_case_study/assets/130725137/c1049aa0-a840-4dfe-ab74-b5d8af61db74)
+
+ 
+* Total ride length duration of member and casual
+ 
+divvy2 %>% group_by(member_casual) %>%
+  summarize(Total_ride=n())
+  ![IMG_20230809_175304](https://github.com/manhas1234/Cyclistic_bike_case_study/assets/130725137/80e9d416-c73c-4c7d-9ed1-56dcf06848ff)
+
+  
+* Average ride length duration in the month from jan to june of member and casual
+ 
+ divvy2 %>% group_by(member_casual,month) %>% summarize(Average_length=mean(ride_length)) 
+![IMG_20230809_175238](https://github.com/manhas1234/Cyclistic_bike_case_study/assets/130725137/17551851-b826-4d9e-9a42-667601932741)
+
+
+* Average ride length duration in weekday of member and casual
+
+ divvy2 %>% group_by(member_casual,weekday) %>% summarize(Average_length=mean(ride_length))
+ ![IMG_20230809_175208](https://github.com/manhas1234/Cyclistic_bike_case_study/assets/130725137/a96daf6e-dcdb-4a2c-a9a4-70b6e21aaaa1)
+
+#  Share phase
+
+ divvy2 %>% group_by(member_casual,bike_type) %>% summarize(Average_length=mean(ride_length)) %>%
+  ggplot(aes(x=bike_type,y=Average_length,fill=member_casual)) + geom_col(position="dodge") +
+  labs(title="Average duration of members & casual by bike type ")
 
 
 
