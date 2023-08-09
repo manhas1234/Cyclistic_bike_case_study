@@ -1,4 +1,4 @@
-
+fr
 
 
 
@@ -45,13 +45,16 @@ Cited: The data is available under the current license agreement.
 
 
 Rstudio has been used for this phase and these libraries has been used
-![IMG_20230809_124436](https://github.com/manhas1234/Cyclistic_bike_case_study/assets/130725137/3e6de858-0fae-467c-89e4-2b7fbcadcdd0)
+
+![IMG_20230809_124850](https://github.com/manhas1234/Cyclistic_bike_case_study/assets/130725137/e06350e9-05f2-4510-b183-103c0e2f5946)
 
 
 
 
 
-]
+
+
+
 
 
 
