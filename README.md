@@ -45,7 +45,8 @@ Cited: The data is available under the current license agreement.
 
 
 
-Rstudio has been used for this phase and these libraries has been used
+
+* Rstudio has been used for this phase and these libraries has been used
 ![IMG_20230809_124850](https://github.com/manhas1234/Cyclistic_bike_case_study/assets/130725137/e06350e9-05f2-4510-b183-103c0e2f5946)
 
 
@@ -64,7 +65,7 @@ data6<- read.csv("C:/Users/Sumit/Desktop/divvy_bike_share/Chicago/202106-divvy-t
 
 # Process phase
 
-To merge all the files together we need to know that all files has same attributes,same data type in same sequence.
+* To merge all the files together we need to know that all files has same attributes,same data type in same sequence.
 
 str(data1)
 
@@ -78,9 +79,35 @@ str(data5)
 
 str(data6)
 
-All files has same attributes,same data type in same sequence and Now i have merged these all files together
+* All files has same attributes,same data type in same sequence and Now i have merged these all files together
 
 divvy<-bind_rows(data1,data2,data3,data4,data5,data6)
+
+
+* To see the structure of merged  data 
+str(divvy)
+
+
+* Head of the data
+head(divvy)
+
+
+* Tail of data
+tail(divvy)
+
+  
+colnames(divvy)
+
+
+
+
+
+# Now data clean process has been started
+
+* There is no need such type of column (start_lat,start_lng,end_lat,end_lng,start_station_id & end_station_id) in data so i have removed this from the data
+ 
+divvy<-select(divvy,-start_lat,-start_lng,-end_lat,-end_lng,-start_station_id,-end_station_id)
+
 
 
 
