@@ -1,4 +1,4 @@
-fr
+
 
 
 
@@ -48,6 +48,18 @@ Rstudio has been used for this phase and these libraries has been used
 
 ![IMG_20230809_124850](https://github.com/manhas1234/Cyclistic_bike_case_study/assets/130725137/e06350e9-05f2-4510-b183-103c0e2f5946)
 
+
+import data
+data1<- read.csv("c:/users/Sumit/Desktop/divvy_bike_share/Chicago/202101-divvy-tripdata.csv")
+data2<- read.csv("C:/Users/Sumit/Desktop/divvy_bike_share/Chicago/202102-divvy-tripdata.csv")
+data3<- read.csv("C:/Users/Sumit/Desktop/divvy_bike_share/Chicago/202103-divvy-tripdata.csv")
+data4<- read.csv("C:/Users/Sumit/Desktop/divvy_bike_share/Chicago/202104-divvy-tripdata.csv")
+data5<- read.csv("C:/Users/Sumit/Desktop/divvy_bike_share/Chicago/202105-divvy-tripdata.csv")
+data6<- read.csv("C:/Users/Sumit/Desktop/divvy_bike_share/Chicago/202106-divvy-tripdata.csv")
+
+# Process phase
+
+To merge all the files together we need to know that all files has same attributes,same data type in same sequence.
 
 
 
