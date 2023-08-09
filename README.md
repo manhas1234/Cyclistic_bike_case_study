@@ -43,31 +43,21 @@ Current: The data is up to date to apr 2023.
 
 Cited: The data is available under the current license agreement.
 
+
 Rstudio has been used for this phase and these libraries has been used
+![IMG_20230809_124436](https://github.com/manhas1234/Cyclistic_bike_case_study/assets/130725137/3e6de858-0fae-467c-89e4-2b7fbcadcdd0)
 
-library(tidyverse)
-## ── Attaching core tidyverse packages ──────────────────────── tidyverse 2.0.0 ──
-## ✔ dplyr     1.1.1     ✔ readr     2.1.4
-## ✔ forcats   1.0.0     ✔ stringr   1.5.0
-## ✔ ggplot2   3.4.2     ✔ tibble    3.2.1
-## ✔ lubridate 1.9.2     ✔ tidyr     1.3.0
-## ✔ purrr     1.0.1     
-## ── Conflicts ──────────────────────────────────
-library(lubridate)
 
-library(skimr)
 
-library(ggplot2)
 
-# import data
-data1<- read.csv("c:/users/Sumit/Desktop/divvy_bike_share/Chicago/202101-divvy-tripdata.csv")
 
-data2<- read.csv("C:/Users/Sumit/Desktop/divvy_bike_share/Chicago/202102-divvy-tripdata.csv")
+]
 
-data3<- read.csv("C:/Users/Sumit/Desktop/divvy_bike_share/Chicago/202103-divvy-tripdata.csv")
-data4<- 
-read.csv("C:/Users/Sumit/Desktop/divvy_bike_share/Chicago/202104-divvy-tripdata.csv")
 
-data5<- read.csv("C:/Users/Sumit/Desktop/divvy_bike_share/Chicago/202105-divvy-tripdata.csv")
 
-data6<- read.csv("C:/Users/Sumit/Desktop/divvy_bike_share/Chicago/202106-divvy-tripdata.csv")
+
+
+
+
+
+
