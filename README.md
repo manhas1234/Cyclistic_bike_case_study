@@ -145,8 +145,8 @@ divvy<-rename(divvy,"bike_type"="rideable_type")
  divvy$ride_length<-as.numeric(as.character(divvy$ride_length)) 
 
  summary(divvy)
- ![Screenshot_2023-08-09-17-42-28-286_com google android apps docs](https://github.com/manhas1234/Cyclistic_bike_case_study/assets/130725137/6518c47d-d813-4f39-a811-947acd1fb318)
-
+ 
+![IMG_20230809_180137](https://github.com/manhas1234/Cyclistic_bike_case_study/assets/130725137/98a0f69c-4445-466c-b9bd-941df24dd86c)
 
  * There is some negative values in ride_length column it means ended time is less than started time and also Ride_length column duration time have in second so it has been converted from second to minutes
  
