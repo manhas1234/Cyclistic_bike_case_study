@@ -89,15 +89,18 @@ str(divvy)
 
 
 * Head of the data
+  
 head(divvy)
 
 
 * Tail of data
+ 
 tail(divvy)
 
-  
+* To check the column in the data
+ 
 colnames(divvy)
-
+![IMG_20230809_173455](https://github.com/manhas1234/Cyclistic_bike_case_study/assets/130725137/4eb110c7-c8d9-49bc-9a50-9776144b0f41)
 
 
 
@@ -108,6 +111,21 @@ colnames(divvy)
  
 divvy<-select(divvy,-start_lat,-start_lng,-end_lat,-end_lng,-start_station_id,-end_station_id)
 
+* Again check the column
+  
+  colnames(divvy)
+  ![IMG_20230809_173031](https://github.com/manhas1234/Cyclistic_bike_case_study/assets/130725137/eb35deb5-ed76-41a1-89d8-c850305e4967)
+
+
+  
+* For understanding data clearly i have renamed one column of rideable_type
+ 
+divvy<-rename(divvy,"bike_type"="rideable_type")
+
+* In our data there was only one column of bike_type for data aggregation so few of the column has been added.
+
+ divvy$month<-format(as_date(divvy$started_at),"%b")
+ 
 
 
 
