@@ -1,8 +1,8 @@
 
 
-# Divvy_bike_share
 
-Cyclistic_bike_share_case_study
+
+# Cyclistic_bike_share_case_study
 
 This case study is one of the case study of google data analytics course on coursera platform
 
@@ -44,6 +44,7 @@ Current: The data is up to date to apr 2023.
 Cited: The data is available under the current license agreement.
 
 Rstudio has been used for this phase and these libraries has been used
+
 library(tidyverse)
 ## ── Attaching core tidyverse packages ──────────────────────── tidyverse 2.0.0 ──
 ## ✔ dplyr     1.1.1     ✔ readr     2.1.4
@@ -51,14 +52,12 @@ library(tidyverse)
 ## ✔ ggplot2   3.4.2     ✔ tibble    3.2.1
 ## ✔ lubridate 1.9.2     ✔ tidyr     1.3.0
 ## ✔ purrr     1.0.1     
-## ── Conflicts ────────────────────────────────────────── tidyverse_conflicts() ──
-## ✖ dplyr::filter() masks stats::filter()
-## ✖ dplyr::lag()    masks stats::lag()
-## ℹ Use the conflicted package (<http://conflicted.r-lib.org/>) to force all conflicts to become errors
+## ── Conflicts ──────────────────────────────────
 library(lubridate)
 library(skimr)
 library(ggplot2)
-import data
+
+# import data
 data1<- read.csv("c:/users/Sumit/Desktop/divvy_bike_share/Chicago/202101-divvy-tripdata.csv")
 data2<- read.csv("C:/Users/Sumit/Desktop/divvy_bike_share/Chicago/202102-divvy-tripdata.csv")
 data3<- read.csv("C:/Users/Sumit/Desktop/divvy_bike_share/Chicago/202103-divvy-tripdata.csv")
