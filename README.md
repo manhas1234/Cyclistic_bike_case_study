@@ -90,13 +90,11 @@ str(divvy)
 
 * Head of the data
   
-  
-head(divvy)
+  head(divvy)
 
 
 * Tail of data
 
- 
  tail(divvy)
 
 * To check the column in the data
@@ -198,20 +196,33 @@ divvy2 %>% group_by(member_casual) %>%
 #  Share phase
 
  divvy2 %>% group_by(member_casual,bike_type) %>% summarize(Average_length=mean(ride_length)) %>%
-  ggplot(aes(x=bike_type,y=Average_length,fill=member_casual)) + geom_col(position="dodge") +
+ggplot(aes(x=bike_type,y=Average_length,fill=member_casual)) + geom_col(position="dodge") +
   labs(title="Average duration of members & casual by bike type ")
+![IMG_20230809_180359](https://github.com/manhas1234/Cyclistic_bike_case_study/assets/130725137/0a32e17c-1a32-4251-8fdb-f3b8a51438df)
+
+
+divvy2 %>% group_by(member_casual) %>% summarize(Total_ride=n()) %>% ggplot(aes(x=member_casual,y=Total_ride,fill=member_casual)) + geom_col()
 
 
 
 
 
 
+divvy2 %>% group_by(member_casual,month) %>% summarize(Average_length=mean(ride_length)) %>%
+ggplot(aes(x=month,y=Average_length,fill=member_casual)) +geom_col(position="dodge") +
+  labs(title = "Average ride length of member & casual by month ")
+  ![IMG_20230809_180758](https://github.com/manhas1234/Cyclistic_bike_case_study/assets/130725137/efea2882-3676-44cc-be16-d5e2957c4892)
+
+  
+divvy2 %>% group_by(member_casual,weekday) %>% summarize(Average_length=mean(ride_length)) %>%
+ggplot(aes(x=weekday,y=Average_length,fill= member_casual)) + geom_col(position = "dodge") +
+  labs(title = "Average ride length of member & casual in weekday")
+![IMG_20230809_180719](https://github.com/manhas1234/Cyclistic_bike_case_study/assets/130725137/82f37644-397e-41e1-bc6a-dbc61c373ba5)
 
 
+# Act phase
+Docked biked has been more used by casual riders as compared to member users .so encourage casual rider by giving them various coupon so that they can get a membership
 
-
-
-
-
+Host fun biking competitions with prizes at sunday becuase lot of casual rider rides bike on this days
 
 
