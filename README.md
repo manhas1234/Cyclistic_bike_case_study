@@ -136,7 +136,7 @@ divvy<-rename(divvy,"bike_type"="rideable_type")
  ![IMG_20230809_174040](https://github.com/manhas1234/Cyclistic_bike_case_study/assets/130725137/47612473-4200-4031-8d40-f81417c28b36)
 
  
-*We have no any numeric data type for which we can summarize our data, so ride length duration has been extracted from the column of start_at & ended_at
+* We have no any numeric data type for which we can summarize our data, so ride length duration has been extracted from the column of start_at & ended_at
 
  divvy$ride_length<- difftime(divvy$ended_at,divvy$started_at)
  
