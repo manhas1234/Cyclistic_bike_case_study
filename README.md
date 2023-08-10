@@ -1,6 +1,5 @@
 
-
-
+[here](C:\Users\Sumit\Downloads\Documents\Chicago_Bike_share_case_study.Rmd-2.html)
 
 # Cyclistic_bike_share_case_study
 
