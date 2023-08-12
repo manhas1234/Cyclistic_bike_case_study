@@ -1,4 +1,4 @@
-G
+
 
 
 # Cyclistic_bike_share_case_study
