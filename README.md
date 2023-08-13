@@ -200,7 +200,9 @@ ggplot(aes(x=bike_type,y=Average_length,fill=member_casual)) + geom_col(position
 ![IMG_20230809_180359](https://github.com/manhas1234/Cyclistic_bike_case_study/assets/130725137/0a32e17c-1a32-4251-8fdb-f3b8a51438df)
 
 
-divvy2 %>% group_by(member_casual) %>% summarize(Total_ride=n()) %>% ggplot(aes(x=member_casual,y=Total_ride,fill=member_casual)) + geom_col()
+divvy2 %>% group_by(member_casual) %>% summarize(Total_ride=n()) %>% ggplot(aes(x=member_casual,y=Total_ride,fill=member_casual)) + geom_col() + 
+labs(title="Total ride length  by casual & member ")
+![IMG_20230813_104341](https://github.com/manhas1234/Cyclistic_bike_case_study/assets/130725137/55fd0b17-eccf-4958-ba03-bec54f6157ea)
 
 
 
